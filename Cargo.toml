@@ -1,0 +1,16 @@
+[package]
+name = "Apex"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+winapi = { version = "0.3.9", features = ["wingdi", "ntdef", "processthreadsapi", "handleapi", "memoryapi", "winuser", "vadefs", "tlhelp32", "psapi", "winbase", "errhandlingapi", "basetsd"] }
+gl = "0.14.0"
+glfw-passthrough = "0.51.1"
+speedy2d = { path="lib/Speedy2D" }
+
+
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-Ctarget-feature=+crt-static", "-Clink-args=/SUBSYSTEM:WINDOWS", "-Clink-args=/ENTRY:mainCRTStartup"]
